@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <h2>Pawmodoro Clock</h2>
+        <h2>Pawmodoro</h2>
         <Timer timerMinute={this.state.timerMinute} />
         <section className="intervals-container">
           <Break breakLength={this.state.breakLength} />
