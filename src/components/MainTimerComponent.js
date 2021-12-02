@@ -5,7 +5,8 @@ class Timer extends React.Component {
         super(props);
 
         this.state = {
-            isSession: true
+            isSession: true,
+            timerSecond: 0
         }
     }
     
@@ -14,6 +15,8 @@ class Timer extends React.Component {
             <React.Fragment>
                 {/*if we we are in a session display Work, if not display Chill*/}
                 <h4>{this.state.isSession === true ? "Work" : "Chill"}</h4>
+                <span>{this.props.timerMinute}</span>
+                <span>{this.state.timerSecond}</span>
             </React.Fragment>
         )
     }

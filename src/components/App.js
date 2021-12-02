@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       breakLength: 5,
-      sessionLength: 25
+      sessionLength: 25,
+      timerMinute: 25
     }
   }
   render() {
