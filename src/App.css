@@ -1,0 +1,60 @@
+body {
+    background-color: #f2e2ff;
+    font-family: 'Hachi Maru Pop', cursive;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: #ffdef2;
+    -webkit-text-stroke: 1px black;/*text outline*/
+}
+
+h4 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.interval-container {
+    display: flex;
+    margin: 0 20px;
+    align-items: center;
+}
+
+.intervals-container {
+    display: flex;
+}
+
+.main-timer {
+    margin: 100px;
+    text-align: center;
+}
+
+.timer {
+    font-size: 2rem;
+}
+
+button {
+    margin: 0 10px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: #ffdef2;
+}
+
+
+p {
+    font-size: 2rem;
+    margin: 0 10px;
+}

@@ -17,9 +17,11 @@ class App extends React.Component {
     return (
       <main>
         <h2>Pawmodoro Clock</h2>
-        <Break breakLength={this.state.breakLength} />
-        <Session sessionLength={this.state.sessionLength} />
         <Timer timerMinute={this.state.timerMinute} />
+        <section className="intervals-container">
+          <Break breakLength={this.state.breakLength} />
+          <Session sessionLength={this.state.sessionLength} />
+        </section>
       </main>
     );
   }
