@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPause, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 
 class Timer extends React.Component {
     constructor(props) {
@@ -22,9 +23,9 @@ class Timer extends React.Component {
                     <span className="timer">{this.state.timerSecond < 10 ? '0' + this.state.timerSecond : this.state.timerSecond}</span>
                 </section>
                 <section className="action-btns">
-                    <button></button>
-                    <button></button>
-                    <button></button>
+                    <button><FontAwesomeIcon icon={faPlay} /></button>
+                    <button><FontAwesomeIcon icon={faPause} /></button>
+                    <button><FontAwesomeIcon icon={faSyncAlt} /></button>
                 </section>
             </section>
         )

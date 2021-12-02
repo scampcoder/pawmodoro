@@ -35,7 +35,8 @@ h4 {
 }
 
 .main-timer {
-    margin: 100px;
+    margin-top: 100px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -45,12 +46,16 @@ h4 {
 
 button {
     margin: 0 10px;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     border: 1px solid black;
     cursor: pointer;
     background-color: #ffdef2;
+}
+
+.action-btns {
+    text-align: center;
 }
 
 
