@@ -5,7 +5,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      breakLength: 5,
+      sessionLength: 25
     }
   }
   render() {
