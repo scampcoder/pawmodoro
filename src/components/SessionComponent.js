@@ -2,11 +2,11 @@ import React from 'react';
 
 function Session(props) {
     return (
-        <section>
+        <React.Fragment>
             <button>-</button>
             <p>{props.sessionLength}</p>
             <button>+</button>
-        </section>
+        </React.Fragment>
     );
 }
 
