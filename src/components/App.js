@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import Break from './BreakComponent';
 import Session from './SessionComponent';
+import Timer from './MainTimerComponent';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <h2>Pawmodoro Clock</h2>
         <Break breakLength={this.state.breakLength} />
         <Session sessionLength={this.state.sessionLength} />
+        <Timer timerMinute={this.state.timerMinute} />
       </main>
     );
   }
