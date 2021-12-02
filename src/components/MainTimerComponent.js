@@ -12,13 +12,13 @@ class Timer extends React.Component {
     
     render() {
         return (
-            <React.Fragment>
+            <section>
                 {/*if we we are in a session display Work, if not display Chill*/}
                 <h4>{this.state.isSession === true ? "Work" : "Chill"}</h4>
                 <span>{this.props.timerMinute}</span>
                 <span>:</span>
                 <span>{this.state.timerSecond < 10 ? '0' + this.state.timerSecond : this.state.timerSecond}</span>
-            </React.Fragment>
+            </section>
         )
     }
 }

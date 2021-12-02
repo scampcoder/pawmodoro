@@ -2,11 +2,11 @@ import React from 'react';
 
 function Break(props) {
     return (
-        <React.Fragment>
+        <section>
             <button>-</button>
             <p>{props.breakLength}</p>
             <button>+</button>
-        </React.Fragment>
+        </section>
     );
 }
 
