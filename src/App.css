@@ -51,7 +51,7 @@ button {
     border-radius: 50%;
     border: 1px solid black;
     cursor: pointer;
-    background-color: #eee/*#ffdef2*/;
+    background-color: #ffdef2;
 }
 
 button:disabled {
