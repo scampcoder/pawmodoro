@@ -19,6 +19,7 @@ class Timer extends React.Component {
 
     play() {
         let intervalId = setInterval(this.runTimer, 1000);
+        this.props.timerRunning(true);
         this.setState({
             intervalId: intervalId
         })
@@ -26,13 +27,16 @@ class Timer extends React.Component {
 
     stop() {
         clearInterval(this.state.intervalId);
+        this.props.timerRunning(false);
     }
 
     reset() {
         this.stop();
         this.props.resetTimer();
+        this.props.timerRunning(false);
         this.setState({
-            timerSecond: 0
+            timerSecond: 0,
+            isSession: true
         })
     }
 
@@ -44,11 +48,12 @@ class Timer extends React.Component {
                         isSession: !this.state.isSession
                     })
                     this.props.timerToggle(this.state.isSession);
+                } else {
+                    this.props.runTimer();
+                    this.setState({
+                        timerSecond: 59
+                    })
                 }
-                this.props.runTimer()
-                this.setState({
-                    timerSecond: 59
-                })
                 break;
             default:
                 this.setState((prevState) => {
@@ -59,7 +64,7 @@ class Timer extends React.Component {
                 break;
         }
     }
-    
+
     render() {
         return (
             <section>

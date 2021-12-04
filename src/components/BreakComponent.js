@@ -19,9 +19,9 @@ function Break(props) {
         <section>
             <h4>Cat Nap</h4>
             <section className="interval-container">
-                <button onClick={decreaseCounter}>-</button>
+                <button disabled={props.isRunning === true ? "disabled" : ''} onClick={decreaseCounter}>-</button>
                 <p>{props.breakLength}</p>
-                <button onClick={increaseCounter}>+</button>
+                <button disabled={props.isRunning === true ? "disabled" : ''} onClick={increaseCounter}>+</button>
             </section>
         </section>
     );

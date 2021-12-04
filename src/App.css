@@ -54,6 +54,10 @@ button {
     background-color: #ffdef2;
 }
 
+button:disabled {
+    cursor: not-allowed;
+}
+
 .action-btns {
     text-align: center;
 }

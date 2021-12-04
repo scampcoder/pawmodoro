@@ -11,6 +11,7 @@ class App extends React.Component {
       breakLength: 5,
       sessionLength: 25,
       timerMinute: 25,
+      isRunning: false
     };
     this.increaseBreak = this.increaseBreak.bind(this);
     this.decreaseBreak = this.decreaseBreak.bind(this);
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.timerToggle = this.timerToggle.bind(this);
     this.runTimer = this.runTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
+    this.timerRunning = this.timerRunning.bind(this);
   }
 
   increaseBreak() {
@@ -81,6 +83,12 @@ class App extends React.Component {
     })
   }
 
+  timerRunning(isRunning) {
+    this.setState({
+      isRunning: isRunning
+    })
+  }
+
   render() {
     return (
       <main>
@@ -91,17 +99,20 @@ class App extends React.Component {
           timerToggle={this.timerToggle}
           runTimer={this.runTimer}
           resetTimer={this.resetTimer}
+          timerRunning={this.timerRunning}
         />
         <section className="intervals-container">
           <Break
             breakLength={this.state.breakLength}
             increaseBreak={this.increaseBreak}
             decreaseBreak={this.decreaseBreak}
+            isRunning={this.state.isRunning}
           />
           <Session
             sessionLength={this.state.sessionLength}
             increaseSession={this.increaseSession}
             decreaseSession={this.decreaseSession}
+            isRunning={this.state.isRunning}
           />
         </section>
       </main>
