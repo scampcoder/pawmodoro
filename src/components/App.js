@@ -16,6 +16,8 @@ class App extends React.Component {
     this.decreaseBreak = this.decreaseBreak.bind(this);
     this.increaseSession = this.increaseSession.bind(this);
     this.decreaseSession = this.decreaseSession.bind(this);
+    this.timerToggle = this.timerToggle.bind(this);
+    this.runTimer = this.runTimer.bind(this);
   }
 
   increaseBreak() {
@@ -38,7 +40,7 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         sessionLength: prevState.sessionLength + 1,
-        timerMinute: prevState.timerMinute + 1
+        timerMinute: prevState.timerMinute + 1,
       };
     });
   }
@@ -47,16 +49,41 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         sessionLength: prevState.sessionLength - 1,
-        timerMinute: prevState.timerMinute - 1
+        timerMinute: prevState.timerMinute - 1,
       };
     });
+  }
+
+  runTimer() {
+    this.setState((prevState) => {
+      return {
+        timerMinute: prevState.timerMinute - 1
+      }
+    })
+  }
+
+  timerToggle(isSession) {
+    if(isSession) {
+      this.setState({
+        timerMinute: this.state.sessionLength
+      })
+    } else {
+      this.setState({
+        timerMinute: this.state.breakLength
+      })
+    }
   }
 
   render() {
     return (
       <main>
         <h2>Pawmodoro</h2>
-        <Timer timerMinute={this.state.timerMinute} />
+        <Timer
+          timerMinute={this.state.timerMinute}
+          breakLength={this.state.breakLength}
+          timerToggle={this.timerToggle}
+          runTimer={this.runTimer}
+        />
         <section className="intervals-container">
           <Break
             breakLength={this.state.breakLength}
