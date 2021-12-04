@@ -8,7 +8,35 @@ class Timer extends React.Component {
 
         this.state = {
             isSession: true,
-            timerSecond: 0
+            timerSecond: 0,
+            intervalId: 0
+        }
+        this.play = this.play.bind(this);
+        this.runTimer = this.runTimer.bind(this);
+    }
+
+    play() {
+        let intervalId = setInterval(this.runTimer, 1000);
+        this.setState({
+            intervalId: intervalId
+        })
+    }
+
+    runTimer() {
+        switch(this.state.timerSecond) {
+            case 0:
+                this.props.runTimer()
+                this.setState({
+                    timerSecond: 59
+                })
+                break;
+            default:
+                this.setState((prevState) => {
+                    return {
+                        timerSecond: prevState.timerSecond - 1
+                    }
+                })
+                break;
         }
     }
     
@@ -23,9 +51,9 @@ class Timer extends React.Component {
                     <span className="timer">{this.state.timerSecond < 10 ? '0' + this.state.timerSecond : this.state.timerSecond}</span>
                 </section>
                 <section className="action-btns">
-                    <button><FontAwesomeIcon icon={faPlay} /></button>
-                    <button><FontAwesomeIcon icon={faPause} /></button>
-                    <button><FontAwesomeIcon icon={faSyncAlt} /></button>
+                    <button onClick={this.play}><FontAwesomeIcon icon={faPlay} /></button>
+                    <button onClick={this.stop}><FontAwesomeIcon icon={faPause} /></button>
+                    <button onClick={this.reset}><FontAwesomeIcon icon={faSyncAlt} /></button>
                 </section>
             </section>
         )
