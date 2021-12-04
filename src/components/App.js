@@ -38,6 +38,7 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         sessionLength: prevState.sessionLength + 1,
+        timerMinute: prevState.timerMinute + 1
       };
     });
   }
@@ -46,6 +47,7 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         sessionLength: prevState.sessionLength - 1,
+        timerMinute: prevState.timerMinute - 1
       };
     });
   }
