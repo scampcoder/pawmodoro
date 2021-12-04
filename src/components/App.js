@@ -18,6 +18,7 @@ class App extends React.Component {
     this.decreaseSession = this.decreaseSession.bind(this);
     this.timerToggle = this.timerToggle.bind(this);
     this.runTimer = this.runTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
   }
 
   increaseBreak() {
@@ -74,6 +75,12 @@ class App extends React.Component {
     }
   }
 
+  resetTimer() {
+    this.setState({
+      timerMinute: this.state.sessionLength
+    })
+  }
+
   render() {
     return (
       <main>
@@ -83,6 +90,7 @@ class App extends React.Component {
           breakLength={this.state.breakLength}
           timerToggle={this.timerToggle}
           runTimer={this.runTimer}
+          resetTimer={this.resetTimer}
         />
         <section className="intervals-container">
           <Break

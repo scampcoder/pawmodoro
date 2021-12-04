@@ -14,6 +14,7 @@ class Timer extends React.Component {
         this.play = this.play.bind(this);
         this.runTimer = this.runTimer.bind(this);
         this.stop = this.stop.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
     play() {
@@ -25,6 +26,14 @@ class Timer extends React.Component {
 
     stop() {
         clearInterval(this.state.intervalId);
+    }
+
+    reset() {
+        this.stop();
+        this.props.resetTimer();
+        this.setState({
+            timerSecond: 0
+        })
     }
 
     runTimer() {
