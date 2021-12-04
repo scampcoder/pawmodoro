@@ -14,6 +14,8 @@ class App extends React.Component {
     };
     this.increaseBreak = this.increaseBreak.bind(this);
     this.decreaseBreak = this.decreaseBreak.bind(this);
+    this.increaseSession = this.increaseSession.bind(this);
+    this.decreaseSession = this.decreaseSession.bind(this);
   }
 
   increaseBreak() {
@@ -32,6 +34,22 @@ class App extends React.Component {
     });
   }
 
+  increaseSession() {
+    this.setState((prevState) => {
+      return {
+        sessionLength: prevState.sessionLength + 1,
+      };
+    });
+  }
+
+  decreaseSession() {
+    this.setState((prevState) => {
+      return {
+        sessionLength: prevState.sessionLength - 1,
+      };
+    });
+  }
+
   render() {
     return (
       <main>
@@ -43,7 +61,11 @@ class App extends React.Component {
             increaseBreak={this.increaseBreak}
             decreaseBreak={this.decreaseBreak}
           />
-          <Session sessionLength={this.state.sessionLength} />
+          <Session
+            sessionLength={this.state.sessionLength}
+            increaseSession={this.increaseSession}
+            decreaseSession={this.decreaseSession}
+          />
         </section>
       </main>
     );

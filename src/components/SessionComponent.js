@@ -1,13 +1,28 @@
 import React from 'react';
 
 function Session(props) {
+    function decreaseCounter() {
+        if(props.sessionLength === 1) {
+            return;
+        }
+        props.decreaseSession();
+    }
+
+    function increaseCounter() {
+        if(props.sessionLength === 90) {
+            return;
+        }
+        props.increaseSession();
+    }
+
+
     return (
         <section>
             <h4>Work</h4>
             <section className="interval-container">
-                <button>-</button>
+                <button onClick={decreaseCounter}>-</button>
                 <p>{props.sessionLength}</p>
-                <button>+</button>
+                <button onClick={increaseCounter}>+</button>
             </section>
         </section>
     );
