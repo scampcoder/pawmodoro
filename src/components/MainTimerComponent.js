@@ -39,6 +39,19 @@ class Timer extends React.Component {
     runTimer() {
         switch(this.state.timerSecond) {
             case 0:
+                if(this.props.timerMinute === 0) {
+                    if(this.state.isSession){
+                        this.setState({
+                            isSession: false
+                        })
+                        this.props.timerToggle(this.state.isSession);
+                    } else {
+                        this.setState({
+                            isSession: true
+                        })
+                        this.props.timerToggle(this.state.isSession);
+                    }
+                }
                 this.props.runTimer()
                 this.setState({
                     timerSecond: 59
